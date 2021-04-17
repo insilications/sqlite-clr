@@ -76,7 +76,7 @@ TLIBS = @LIBS@ $(LIBS)
 # default to file, 2 to default to memory, and 3 to force temporary
 # tables to always be in memory.
 #
-TEMP_STORE = -DSQLITE_TEMP_STORE=@TEMP_STORE@
+TEMP_STORE = -DSQLITE_TEMP_STORE=2
 
 # Enable/disable loadable extensions, and other optional features
 # based on configuration. (-DSQLITE_OMIT*, -DSQLITE_ENABLE*).
@@ -1228,7 +1228,7 @@ TESTFIXTURE_FLAGS += -DTCLSH_INIT_PROC=sqlite3TestInit
 TESTFIXTURE_FLAGS += -DSQLITE_SERVER=1 -DSQLITE_PRIVATE="" -DSQLITE_CORE
 TESTFIXTURE_FLAGS += -DBUILD_sqlite
 TESTFIXTURE_FLAGS += -DSQLITE_SERIES_CONSTRAINT_VERIFY=1
-TESTFIXTURE_FLAGS += -DSQLITE_DEFAULT_PAGE_SIZE=1024
+TESTFIXTURE_FLAGS += -DSQLITE_DEFAULT_PAGE_SIZE=4096
 TESTFIXTURE_FLAGS += -DSQLITE_ENABLE_STMTVTAB
 TESTFIXTURE_FLAGS += -DSQLITE_ENABLE_DBPAGE_VTAB
 TESTFIXTURE_FLAGS += -DSQLITE_ENABLE_BYTECODE_VTAB
@@ -1276,7 +1276,7 @@ tcltest:	./testfixture$(TEXE)
 # Minimal testing that runs in less than 3 minutes
 #
 quicktest:	./testfixture$(TEXE)
-	./testfixture$(TEXE) $(TOP)/test/extraquick.test $(TESTOPTS)
+	./testfixture$(TEXE) $(TOP)/test/extraquick.test
 
 # This is the common case.  Run many tests that do not take too long,
 # including fuzzcheck, sqlite3_analyzer, and sqldiff tests.

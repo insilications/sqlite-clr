@@ -23,13 +23,13 @@ fi
 #      gcc -Wall -I. test/kvtest.c sqlite3.c -o kvtest $MYFLAGS
 # fi
 
-if [ -e speedtest1 ]
+if [ -e speedtest2 ]
 then
-    echo "speedtest1 exists"
+    echo "speedtest2 exists"
 else
-    echo "building speedtest1"
+    echo "building speedtest2"
 #     gcc -Wall -I. test/speedtest1.c .libs/sqlite3.o -o speedtest1 $MYFLAGS
-     gcc -Wall -I. test/speedtest1.c .libs/sqlite3.o -o speedtest1 $MYFLAGS
+     gcc -Wall -I. test/speedtest1.c sqlite3.o -o speedtest2 $MYFLAGS
 fi
 
 # if [ -e kvtest.db ]
@@ -44,17 +44,17 @@ fi
 # ./kvtest run kvtest.db --count 50K --stats --blob-api
 # ./kvtest run kvtest.db --count 50K --stats --update
 # ./kvtest run kvtest.db --count 50K --stats --random
-./speedtest1 speedtest1.db --shrink-memory --reprepare --heap 21474838 64 --size 5
-./speedtest1 speedtest1.db --shrink-memory --reprepare --stats --heap 21474838 64 --size 5 --repeat 30
-./speedtest1 speedtest1.db --shrink-memory --reprepare --stats --heap 21474838 64 --size 5 --singlethread
-./speedtest1 speedtest1.db --shrink-memory --reprepare --stats --heap 21474838 64 --size 5 --multithread --threads 16
-./speedtest1 speedtest1.db --shrink-memory --reprepare --stats --heap 21474838 64 --size 5 --multithread --threads 16 --testset main
-./speedtest1 speedtest1.db --shrink-memory --reprepare --stats --heap 21474838 64 --size 5 --multithread --threads 16 --testset cte
-./speedtest1 speedtest1.db --shrink-memory --reprepare --stats --heap 21474838 64 --size 5 --multithread --threads 16 --testset rtree
-./speedtest1 speedtest1.db --shrink-memory --reprepare --stats --heap 21474838 64 --size 5 --multithread --threads 16 --testset orm
-./speedtest1 speedtest1.db --shrink-memory --reprepare --stats --heap 21474838 64 --size 5 --multithread --threads 16 --testset fp
-./speedtest1 speedtest1.db --shrink-memory --reprepare --stats --heap 21474838 64 --size 5 --multithread --threads 16 --journal wal
-./speedtest1 speedtest1.db --shrink-memory --reprepare --stats --heap 21474838 64 --size 5 --multithread --threads 16 --main --journal wal
-./speedtest1 speedtest1.db --shrink-memory --reprepare --stats --heap 21474838 64 --size 5 --multithread --threads 16 --journal wal
-./speedtest1 speedtest1.db --shrink-memory --reprepare --stats --heap 21474838 64 --size 5 --multithread --threads 16 --journal wal
-./speedtest1 speedtest1.db --shrink-memory --reprepare --stats --heap 21474838 64 --size 5 --multithread --threads 16 --journal wal
+./speedtest2 speedtest1.db --shrink-memory --reprepare --heap 21474838 64 --size 5
+./speedtest2 speedtest1.db --shrink-memory --reprepare --stats --heap 21474838 64 --size 5 --repeat 30
+./speedtest2 speedtest1.db --shrink-memory --reprepare --stats --heap 21474838 64 --size 5 --singlethread
+./speedtest2 speedtest1.db --shrink-memory --reprepare --stats --heap 21474838 64 --size 5 --multithread --threads 16
+./speedtest2 speedtest1.db --shrink-memory --reprepare --stats --heap 21474838 64 --size 5 --multithread --threads 16 --testset main
+./speedtest2 speedtest1.db --shrink-memory --reprepare --stats --heap 21474838 64 --size 5 --multithread --threads 16 --testset cte
+./speedtest2 speedtest1.db --shrink-memory --reprepare --stats --heap 21474838 64 --size 5 --multithread --threads 16 --testset rtree
+./speedtest2 speedtest1.db --shrink-memory --reprepare --stats --heap 21474838 64 --size 5 --multithread --threads 16 --testset orm
+./speedtest2 speedtest1.db --shrink-memory --reprepare --stats --heap 21474838 64 --size 5 --multithread --threads 16 --testset fp
+./speedtest2 speedtest1.db --shrink-memory --reprepare --stats --heap 21474838 64 --size 5 --multithread --threads 16 --journal wal
+./speedtest2 speedtest1.db --shrink-memory --reprepare --stats --heap 21474838 64 --size 5 --multithread --threads 16 --main --journal wal
+./speedtest2 speedtest1.db --shrink-memory --reprepare --stats --heap 21474838 64 --size 5 --multithread --threads 16 --journal wal
+./speedtest2 speedtest1.db --shrink-memory --reprepare --stats --heap 21474838 64 --size 5 --multithread --threads 16 --journal wal
+./speedtest2 speedtest1.db --shrink-memory --reprepare --stats --heap 21474838 64 --size 5 --multithread --threads 16 --journal wal
